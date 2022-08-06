@@ -8,8 +8,8 @@ let humanWonRounds = 0;
 let computerWonRounds = 0;
 const playerScore = document.querySelector(".playerScore");
 const computerScore = document.querySelector(".computerScore");
-playerScore.innerText = humanWonRounds;
-computerScore.innerText = computerWonRounds;
+playerScore.innerText = "Your score: " + humanWonRounds;
+computerScore.innerText = "Computer's score: " + computerWonRounds;
 
 rockBtn.addEventListener("click", function() { playRound( getComputerChoice(), "rock") } );
 paperBtn.addEventListener("click", function() { playRound( getComputerChoice(), "paper") } );
@@ -17,8 +17,8 @@ scissorsBtn.addEventListener("click", function() { playRound( getComputerChoice(
 
 
 function updateScores(){
-    playerScore.innerText = humanWonRounds;
-    computerScore.innerText = computerWonRounds;
+    playerScore.innerText = "Your score: " + humanWonRounds;
+    computerScore.innerText = "Computer's score: " + computerWonRounds;
 }
 
 function getComputerChoice() {
@@ -28,7 +28,7 @@ function getComputerChoice() {
 }
 
 function isGameOver () {
-    return (humanWonRounds === 5 || computerWonRounds === 5);
+    return (humanWonRounds === 3 || computerWonRounds === 3);
 }
 
 function endGame () {
