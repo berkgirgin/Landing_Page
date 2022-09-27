@@ -42,6 +42,7 @@ body {
 .header_links ul a {
     text-decoration: none;
     font-size: 24px;
+    color: grey;
 }
 /* Header Settings END */
 
@@ -81,6 +82,8 @@ body {
     background-color: #3882f6;
     align-self: flex-start;
     padding: 4px 12px;
+    border-radius: 8px;
+    border: 0;
 }
 /* First Block Content Settings END */
 
@@ -133,6 +136,7 @@ body {
 
 
 
+
 /* Third Block Settings START */
 
 .third_block_main {
@@ -159,6 +163,7 @@ body {
 }
 
 /* Third Block Settings END */
+
 
 
 
@@ -206,10 +211,11 @@ body {
     background-color: #3882f6;
     color: white;
     border: 2px solid white;
-
+    border-radius: 8px;
 }
 
 /* Fourth Block Settings END */
+
 
 
 
@@ -230,16 +236,3 @@ body {
 }
 
 /* Footer Settings END */
-
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  a {
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-  }
