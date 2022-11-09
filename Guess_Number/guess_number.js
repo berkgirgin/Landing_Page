@@ -5,10 +5,10 @@ const previousGuesses = document.querySelector(".previousGuesses");
 const lowOrHi = document.querySelector(".lowOrHi");
 
 
-guessSubmit.addEventListener( "click", checkGuess );
+guessSubmit.addEventListener( "click", function() {checkGuess()} );
 let randomNumber = generateRandomNumber();
 
-let guessCount = 1;
+let guessCount = 0;
 
 
 function generateRandomNumber() {
@@ -24,19 +24,20 @@ function checkGuess() {
   const userGuess = Number(guessField.value);
 
   if (userGuess === randomNumber) {
-    lowOrHi.textContent = "You have won, congrats!!"
-    lowOrHi.style.backgroundColor = "green"
+    lowOrHi.textContent = "You have won, congrats!!";
+    lowOrHi.style.backgroundColor = "green";
     resetGame();
-  } else if (guessCount == 10) {
+  } else if (guessCount === 10) {
     gameOver();
-  }
-
-  if (userGuess > randomNumber) {
-    lowOrHi.textContent = "your number is too high"
-    lowOrHi.style.backgroundColor = "red"
+  } else if (userGuess === NaN) {
+    lowOrHi.textContent = "!Not a number!";
+    lowOrHi.style.backgroundColor = "red";
+  } else if (userGuess > randomNumber) {
+    lowOrHi.textContent = "your number is too high";
+    lowOrHi.style.backgroundColor = "red";
   } else if ( userGuess < randomNumber) {
-    lowOrHi.textContent = "your number is too low"
-    lowOrHi.style.backgroundColor = "red"
+    lowOrHi.textContent = "your number is too low";
+    lowOrHi.style.backgroundColor = "red";
   }
 
   guessCount++;
@@ -52,6 +53,8 @@ function gameOver(){
 }
 
 function resetGame(){
+  guessField.setAttribute("disabled", "");
+  guessSubmit.setAttribute("disabled", "");
   const resetButton = document.createElement("button");
   resetButton.innerText = "Reset Button";
   resetButton.addEventListener("click", resetGameFunction);
@@ -62,6 +65,10 @@ function resetGame(){
     previousGuesses.textContent = "Previous guesses: ";
     lowOrHi.textContent = "";
     guessField.focus();
+    element = document.querySelector("button");
+    element.remove();
+    guessField.removeAttribute("disabled");
+    guessSubmit.removeAttribute("disabled");
   }
   
 
